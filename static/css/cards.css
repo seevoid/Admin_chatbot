@@ -1,0 +1,85 @@
+.actions_creation_container {
+	padding: 15px;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	position: relative;
+}
+
+.actions_help_container {
+	padding: 15px;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	position: relative;
+}
+
+.actions_tree_container {
+	padding: 15px;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	position: relative;
+	align-items: baseline;
+	border-bottom:2px dotted #c4c4c4;
+}
+
+.action_creation {
+	padding: 5px;
+	margin: 5px;
+	cursor: pointer;
+	background-color: #05728F;
+	color: white;
+	border-radius: 7px;
+	z-index: 99999;
+}
+
+.action_tree {
+	padding: 5px;
+	margin: 5px;
+	cursor: pointer;
+	background-color: grey;
+	color: white;
+	border-radius: 7px;
+	z-index: 99999;
+	outline: none;
+}
+
+.action_help {
+	padding: 5px;
+	margin: 5px;
+	cursor: pointer;
+	background-color: #05728F;
+	color: white;
+	border-radius: 7px;
+	z-index: 99999;
+}
+
+.actions_tree_level_0_container {
+	padding: 15px;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	position: relative;
+}
+ 
+ @media screen and (min-width: 992px) {
+	 .card:nth-of-type(3n+2) .card__expander {
+		 margin-left: calc(-100% - 30px);
+	}
+	 .card:nth-of-type(3n+3) .card__expander {
+		 margin-left: calc(-200% - 60px);
+	}
+	 .card:nth-of-type(3n+4) {
+		 clear: left;
+	}
+}
+ @media screen and (min-width: 768px) and (max-width: 991px) {
+	 .card:nth-of-type(2n+2) .card__expander {
+		 margin-left: calc(-100% - 30px);
+	}
+	 .card:nth-of-type(2n+3) {
+		 clear: left;
+	}
+}
+ 

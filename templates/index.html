@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>⚙ Administration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="static/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="static/favicon/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="static/favicon/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="static/favicon/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="static/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="static/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="static/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="static/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="static/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="static/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/favicon/favicon-16x16.png">
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/botui/build/botui.min.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/botui/build/botui-theme-default.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" media="screen" type="text/css" href="static/css/colorpicker.css" />
+
+    <link rel="stylesheet" media="screen" type="text/css" href="static/css/cards.css" />
+    
+    <link rel="stylesheet" type="text/css" href="static/css/popup.css">
+  </head>
+  <body style="background-color: #211B31;">
+    <div class="container-fluid" style="padding: 1%;">
+      <div id="header">
+        <img id="logo_mjd" src="https://chatbot.majordome.io/img/M_XL.png">
+        <h5 style="text-align: center; color: #05728F; margin: 0 auto;">Bienvenue <span style="color: white;" id="client_name"></span></h5>
+        <div class="container_icons" style="margin-right: 30px;">
+          <a href="" target="_blank" id="to_chat_button"><i class="far fa-comment-dots fa-2x" style="color: white; cursor: pointer;"></i></a>
+          <span style="color: white;">Chat en ligne</span>
+        </div>
+        <div class="container_icons">
+          <i class="fas fa-sign-out-alt fa-2x" id="logout_button" style="color: white; cursor: pointer;"></i>
+          <span style="color: white;">Déconnexion</span>
+        </div>
+      </div>
+      <div class="flex-container">
+        <div id="control_pannel">
+          <h4 style="padding-top: 10px;">Général</h4>
+          <div class="items-container_2">
+            <div class="items-container_1" style="margin-top: 2%;">
+              <h5>Nom du chatbot :</h5>
+              <input type="text" name="chatbot_name_input" id="chatbot_name_input" bind="chatbot_name">
+              <h5 style="margin-top: 20px;">E-Mail notifications :</h5>
+              <input type="mail" name="mail_notif_input" id="mail_notif_input">
+              <h5 style="margin-top: 20px;">Message de bienvenue : </h5>
+              <textarea id="welcome_msg_input"></textarea>
+              <h5 style="margin-top: 20px;">Text Popup Conseiller : </h5>
+              <textarea id="text_popup_input"></textarea>
+
+            </div>
+            <div class="items-container_1">
+              <div class="items-container_1">
+                <div class="items-container_3">
+                  <h5>Avatar :</h5>
+                  <div id="avatar"></div>
+                  
+              </div>
+              <label for="avatar_file" style="border-color: black; border-width: 1px; cursor: pointer; max-width: 200px;" class="btn">Choisir un fichier</label>
+              <input id="avatar_file" style="visibility:hidden;" type="file">
+               </div>
+              <div class="items-container_1">
+                <div class="items-container_3">
+                  <h5>Bulle :</h5>
+                  <div id="bubble_input"></div>
+                </div>
+                <label for="bubble_file" style="border-color: black; border-width: 1px; cursor: pointer; max-width: 200px;" class="btn">Choisir un fichier</label>
+                  <input id="bubble_file" style="visibility:hidden;" type="file">
+              </div>
+              <div class="items-container_3">
+                <h5>Largeur bulle : </h5>
+                <div class="range-slider">
+                  <!-- <span id="rs-bullet" class="rs-label">0</span> -->
+                  <input id="width_bubble_slider" class="rs-range" type="range" value="0" min="0" max="200">
+                </div>
+                <span id="width_bubble_slider_label"></span>
+              </div>
+              <div class="items-container_3">
+                <h5>Hauteur bulle : </h5>
+                <div class="range-slider">
+                  <!-- <span id="rs-bullet" class="rs-label">0</span> -->
+                  <input id="height_bubble_slider" class="rs-range" type="range" value="0" min="0" max="200">
+                </div>
+                <span id="height_bubble_slider_label"></span>
+              </div>
+              <div class="items-container_3">
+                <h5>Largeur fenêtre : </h5>
+                <div class="range-slider">
+                  <input id="width_window_slider" class="rs-range" type="range" value="0" min="300" max="650">
+                </div>
+                <span id="width_window_slider_label"></span>
+              </div>
+              <div class="items-container_3">
+                <h5>Hauteur fenêtre : </h5>
+                <div class="range-slider">
+                  <input id="height_window_slider" class="rs-range" type="range" value="0" min="500" max="800">
+                </div>
+                <span id="height_window_slider_label"></span>
+              </div>
+              <div class="items-container_3">
+                <h5 style="padding-right: 10px;">Couleur Bandeau : </h5>
+                <input id="header_color_picker" type="color" value="" name="">
+              </div>
+              <div class="items-container_3">
+                <h5 style="padding-right: 10px;">Couleur de fond message utilisateur : </h5>
+                <input id="user_msg_background_color_picker" type="color" value="" name="">
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <div id="bot_view">
+          <h4>Aperçu <i id="reload_view_button" style="cursor: pointer;" class="fas fa-sync-alt"></i></h4>
+
+          <div class="item-container-bot-view">
+            <div id="bubble_div"></div>
+          </div>
+        </div>
+      </div>
+      <div id="creation_pannel">
+
+        <div id="container_popup_edition">
+          <div id="action_edition">
+              <i class="fas fa-times" id="close_action_edition" style="float: right; cursor: pointer;"></i>
+              <div class="items-container_4">
+                <div id="container_editor">
+                  <h5>Nom :</h5>
+                  <input type="text" name="action_name_input_edition" id="action_name_input_edition">
+                  <h5>Texte : </h5>
+                  <textarea style="min-width: 500px; min-height: 150px;" id="action_text_input_edition"></textarea>
+                  <p>Action d'aide : <input type="checkbox" id="checkbox_edit_action" name="subscribe"></p>
+                </div>
+                <div class="items-container_2" style="width: 80%; margin: auto;">
+                  <button style="border-color: black; border-width: 1px; cursor: pointer; max-width: 200px;" class="btn" id="edit_action_button">Enregistrer</button>
+                  <button style="border-color: black; border-width: 1px; cursor: pointer; max-width: 200px;" class="btn" id="delete_action_button">Supprimer</button>
+                </div>
+                <span id="warning_edit_action" style="color: red;"></span>
+              </div>
+            </div>
+          </div>
+
+        <h4 style="padding-top: 10px; padding-bottom: 1%; margin-top: 2%;">Création</h4>
+          <div class="flex-container-creation">
+            <div style="width: 30%; height: 500px;">
+              <div class="items-container_4" style="border-bottom:2px solid #c4c4c4; padding-bottom: 5%; width: 90%; margin: 0 auto;">
+                <h5>Ajouter une action</h5>
+                  <h5>Nom : </h5>
+                  
+                  <input type="text" name="action_name_input" id="action_name_input" style="border:1px solid black;">
+                  <h5>Texte : </h5>
+                  <textarea style="min-width: 90%; min-height: 100px; border:1px solid black;" id="action_text_input"></textarea>
+                  <p>Action d'aide : <input type="checkbox" id="checkbox_add_action" name="subscribe"></p>
+                  <button style="border-color: black; border-width: 1px; cursor: pointer; max-width: 200px;" class="btn" id="add_action_button">Ajouter</button>
+                  <span id="warning_add_action" style="color: red;"></span>
+              </div>
+              <div class="items-container_4" style="max-height: 97%;">
+                <h5>Mes actions</h5>
+                <div class="actions_creation_container" style="height: 97%;">
+                  
+                </div>
+              </div>
+            </div>
+            <div style="width: 70%; min-height: 100%; border-left:2px solid #c4c4c4;">
+              <div style="width: 100%; min-height: 20%; border-bottom:2px solid #c4c4c4;">
+                <h5 style="text-align: center;">Actions d'aides</h5>
+                <div class="actions_help_container">
+                  
+                </div>
+              </div>
+              <div style="width: 100%; overflow-y: auto; min-height: 80%;" id="global_actions_tree_container">
+                <h5 style="text-align: center;">Arbres de discussions</h5>
+                <div class="actions_tree_level_0_container" style="border-bottom:2px dotted #c4c4c4;"></div>
+                
+                <!-- <div style="text-align: center;">
+                  <i class="fas fa-plus-circle" style="cursor: pointer;" id="add_level_tree_button_main"></i>
+                  <select style="margin-top: 1%;" id="select_action_box_main">
+                  </select>
+                </div> -->
+              </div>
+              
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div id="popup_login" class="wrap-login100">
+          <span class="login100-form-title p-b-26">
+            Bienvenue
+          </span>
+
+          <span class="login100-form-title p-b-48">
+            <img src="https://chatbot.majordome.io/img/M_color.png" style="margin-top: 10%; margin-bottom: 10%; width: 50px; height: 50px;">
+          </span>
+
+          <div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+            <input class="input100" type="text" name="email" id="email">
+            <span class="focus-input100" data-placeholder="Email"></span>
+          </div>
+
+          <div class="wrap-input100 validate-input" data-validate="Enter password">
+            <span class="btn-show-pass">
+              <i class="zmdi zmdi-eye"></i>
+            </span>
+            <input class="input100" type="password" name="pass" id="password">
+            <span class="focus-input100" data-placeholder="Password"></span>
+          </div>
+
+          <div class="container-login100-form-btn">
+            <div class="wrap-login100-form-btn">
+              <div class="login100-form-bgbtn"></div>
+              <button id="login_button" class="login100-form-btn">
+                Login
+              </button>
+            </div>
+          </div>
+
+          <div style="margin-top: 10px; color: red; text-align: center;">
+            <span id="mail_msg"></span>
+          </div>
+      </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript" src="static/js/admin_panel.js"></script>
+
+    <script>
+      // $(document).ready(function() {
+      //   blur_room()
+      // });
+    </script>
+
+  </body>
+</html>
